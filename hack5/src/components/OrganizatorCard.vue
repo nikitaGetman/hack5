@@ -11,6 +11,9 @@
 
         <v-col class="hidden-xs-only" sm="5" md="3">
           {{ name }}
+          <span class="grey--text text--lighten-1">{{
+            events ? events.length : 0
+          }}</span>
         </v-col>
 
         <v-col class="categories__list">
@@ -69,7 +72,7 @@
 import EventsList from "../components/EventsList";
 
 export default {
-  name: "ManagerCard",
+  name: "OrganizatorCard",
   components: { EventsList },
   props: {
     avatar: { type: String },
@@ -101,12 +104,7 @@ export default {
 .category__item {
   font-size: 12px;
 }
-.rating {
-  /* margin-right: 24px; */
-}
 .rating strong {
   margin-right: 6px;
-}
-.no-events {
 }
 </style>

@@ -1,6 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Home from "../views/Home.vue";
+
 import Events from "../views/Events.vue";
 import Organizators from "../views/Organizators.vue";
 import Partners from "../views/Partners.vue";
@@ -27,11 +27,6 @@ const routes = [
     path: "/partners",
     name: "partners",
     component: Partners
-  },
-  {
-    path: "/organizer/:id",
-    name: "home",
-    component: Home
   },
   {
     path: "*",

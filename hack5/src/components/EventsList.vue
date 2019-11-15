@@ -1,6 +1,6 @@
 <template>
   <v-list subheader two-line>
-    <v-subheader>Мероприятия:</v-subheader>
+    <v-subheader>Мероприятия ({{ events.length }}):</v-subheader>
     <span v-if="!events">Не найдены</span>
 
     <v-list-item
@@ -25,9 +25,9 @@
         <v-list-item-subtitle>{{ event.description }}</v-list-item-subtitle>
       </v-list-item-content>
 
-      <v-list-item-action>
+      <!-- <v-list-item-action>
         <v-list-item-action-text v-text="event.date"></v-list-item-action-text>
-      </v-list-item-action>
+      </v-list-item-action> -->
     </v-list-item>
   </v-list>
 </template>

@@ -3,9 +3,10 @@
     <v-app-bar app color="teal lighten-2" dark></v-app-bar>
 
     <v-content>
-      <navigation></navigation>
       <!-- <router-view name="subheader"></router-view> -->
       <v-container>
+        <navigation></navigation>
+        <filters></filters>
         <router-view></router-view>
       </v-container>
     </v-content>
@@ -14,10 +15,11 @@
 
 <script>
 import Navigation from "./components/Navigation";
+import Filters from "./components/Filters";
 export default {
   name: "App",
 
-  components: { Navigation },
+  components: { Navigation, Filters },
 
   data: () => ({
     //
