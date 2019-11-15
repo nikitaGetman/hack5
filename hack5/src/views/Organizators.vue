@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <div>
     <!-- <navigation></navigation> -->
     <header-form></header-form>
 
@@ -20,7 +20,7 @@
         :events="manager.events"
       ></manager-card>
     </v-expansion-panels>
-  </v-container>
+  </div>
 </template>
 
 <script>
