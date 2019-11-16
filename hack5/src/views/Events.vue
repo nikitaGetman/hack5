@@ -12,7 +12,7 @@
         :link="event.link"
         :description="event.description"
         :category="event.category"
-        :organizators="event.organizators"
+        :organizers="event.organizers"
         :partners="event.partners"
         :simplified="simplified"
       ></event-card>

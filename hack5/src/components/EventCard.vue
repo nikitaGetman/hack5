@@ -1,4 +1,6 @@
-<template> <div class="">This is event card</div></template>
+<template>
+  <div class>This is event card</div>
+</template>
 
 <script>
 export default {
@@ -10,7 +12,7 @@ export default {
     link: { type: String },
     description: { type: String },
     category: { type: String },
-    organizators: { type: Array },
+    organizers: { type: Array },
     partners: { type: Array }
   }
 };

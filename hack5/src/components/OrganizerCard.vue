@@ -9,21 +9,15 @@
           </v-avatar>
         </v-col>
 
-        <v-col class="hidden-xs-only" sm="5" md="3">
-          {{ name }}
-        </v-col>
+        <v-col class="hidden-xs-only" sm="5" md="3">{{ name }}</v-col>
 
         <v-col class="categories__list">
           <strong>Категории:</strong>
-          <i class="category__item">
-            {{ categoriesList }}
-          </i>
+          <i class="category__item">{{ categoriesList }}</i>
         </v-col>
 
         <v-col class="rating text-center">
-          <i class="grey--text text--lighten-1"
-            >({{ events ? events.length : 0 }})</i
-          >
+          <i class="grey--text text--lighten-1">({{ events ? events.length : 0 }})</i>
           <v-icon small color="pink lighten-2">mdi-done</v-icon>
         </v-col>
       </v-row>
@@ -34,17 +28,23 @@
 
       <v-card-text>
         <v-row v-if="phone" dense>
-          <v-col cols="3"><span class="grey--text">Телефон: </span></v-col>
-          <v-col cols="9"> {{ phone }}</v-col>
+          <v-col cols="3">
+            <span class="grey--text">Телефон:</span>
+          </v-col>
+          <v-col cols="9">{{ phone }}</v-col>
         </v-row>
         <v-row v-if="link" dense>
-          <v-col cols="3"><span class="grey--text">Контакты: </span></v-col>
+          <v-col cols="3">
+            <span class="grey--text">Контакты:</span>
+          </v-col>
           <v-col cols="9">
             <a :href="link" target="_blank">{{ link }}</a>
           </v-col>
         </v-row>
         <v-row v-if="email" dense>
-          <v-col cols="3"><span class="grey--text">Email: </span></v-col>
+          <v-col cols="3">
+            <span class="grey--text">Email:</span>
+          </v-col>
           <v-col cols="9">
             <a :href="'mailto:' + email">{{ email }}</a>
           </v-col>
@@ -54,9 +54,7 @@
       <v-divider></v-divider>
 
       <events-list v-if="events" :events="events"></events-list>
-      <p v-else class="text-center mt-8">
-        Список мероприятий пуст
-      </p>
+      <p v-else class="text-center mt-8">Список мероприятий пуст</p>
     </v-expansion-panel-content>
   </v-expansion-panel>
 </template>
@@ -65,7 +63,7 @@
 import EventsList from "../components/EventsList";
 
 export default {
-  name: "OrganizatorCard",
+  name: "organizerCard",
   components: { EventsList },
   props: {
     avatar: { type: String },

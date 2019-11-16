@@ -6,9 +6,7 @@
       active-class="pink--text"
       :to="{ name: tab.to }"
       class="link"
-    >
-      {{ tab.title }}
-    </v-tab>
+    >{{ tab.title }}</v-tab>
     <v-tabs-slider color="pink"></v-tabs-slider>
   </v-tabs>
 </template>
@@ -21,7 +19,7 @@ export default {
       tab: null,
       tabs: [
         { to: "events", title: "Мероприятия" },
-        { to: "organizators", title: "Организаторы" },
+        { to: "organizers", title: "Организаторы" },
         { to: "partners", title: "Партнеры" }
       ]
     };

@@ -2,7 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 
 import Events from "../views/Events.vue";
-import Organizators from "../views/Organizators.vue";
+import Organizers from "../views/Organizers.vue";
 import Partners from "../views/Partners.vue";
 
 Vue.use(VueRouter);
@@ -19,9 +19,9 @@ const routes = [
     component: Events
   },
   {
-    path: "/organizators",
-    name: "organizators",
-    component: Organizators
+    path: "/organizers",
+    name: "organizers",
+    component: Organizers
   },
   {
     path: "/partners",

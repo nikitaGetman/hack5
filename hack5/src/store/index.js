@@ -8,7 +8,8 @@ export default new Vuex.Store({
   state: {
     cities: ["Красноярск", "Москва", "Санкт-Петербург"],
     eventTypes: ["Art", "Programming", "Meetup", "Sport"],
-    organizators: [
+    donationAmount: ["< 10k", "< 50k", "< 100k", "< 200k"],
+    organizers: [
       {
         avatar: "https://avatars0.githubusercontent.com/u/9064066?v=4&s=460",
         name: "John Leider",
@@ -46,8 +47,8 @@ export default new Vuex.Store({
     events: []
   },
   mutations: {
-    SET_ORGANIZATIONS: (state, organizators) => {
-      state.organizators = organizators;
+    SET_ORGANIZATIONS: (state, organizers) => {
+      state.organizers = organizers;
     },
     SET_EVENTS: (state, events) => {
       state.events = events;
@@ -65,8 +66,8 @@ export default new Vuex.Store({
   actions: {
     LOAD_CITIES: () => {},
     LOAD_EVENT_TYPES: () => {},
-    LOAD_ORGANIZATORS: /*({ commit }, { city, type })*/ () => {
-      console.log("Load organizators action");
+    LOAD_organizerS: /*({ commit }, { city, type })*/ () => {
+      console.log("Load organizers action");
     },
     LOAD_EVENTS: /*({ commit }, { city, type })*/ () => {
       console.log("Load events action");
