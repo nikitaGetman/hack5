@@ -13,10 +13,8 @@ export default new Vuex.Store({
         avatar: "https://avatars0.githubusercontent.com/u/9064066?v=4&s=460",
         name: "John Leider",
         phone: "8913167282",
-        rating: "9",
         link: "https://vk.com/nikitagetman",
         email: "someemail@gmail.com",
-        bio: "Я люблю овсяное печенье",
         categories: ["Programming", "Art"],
         events: [
           {
@@ -34,7 +32,6 @@ export default new Vuex.Store({
         name: "Ivan Petrov",
         phone: "8913167282",
         link: "vk:somename",
-        rating: "5",
         categories: ["Art"]
       },
       {
@@ -42,12 +39,29 @@ export default new Vuex.Store({
         icon: "local_offer",
         name: "Promos",
         phone: "Shop your way",
-        rating: "2",
         categories: ["Programming"]
       }
-    ]
+    ],
+    partners: [],
+    events: []
   },
-  mutations: {},
+  mutations: {
+    SET_ORGANIZATIONS: (state, organizators) => {
+      state.organizators = organizators;
+    },
+    SET_EVENTS: (state, events) => {
+      state.events = events;
+    },
+    SET_PARTNERS: (state, partners) => {
+      state.partners = partners;
+    },
+    SET_CITIES: (state, cities) => {
+      state.cities = cities;
+    },
+    SET_EVENT_TYPES: (state, types) => {
+      state.eventTypes = types;
+    }
+  },
   actions: {
     LOAD_CITIES: () => {},
     LOAD_EVENT_TYPES: () => {},

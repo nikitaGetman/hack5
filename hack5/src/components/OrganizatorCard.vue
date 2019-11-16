@@ -11,9 +11,6 @@
 
         <v-col class="hidden-xs-only" sm="5" md="3">
           {{ name }}
-          <span class="grey--text text--lighten-1">{{
-            events ? events.length : 0
-          }}</span>
         </v-col>
 
         <v-col class="categories__list">
@@ -24,16 +21,18 @@
         </v-col>
 
         <v-col class="rating text-center">
-          <strong>{{ rating }}</strong>
-          <v-icon small color="red">mdi-heart</v-icon>
+          <i class="grey--text text--lighten-1"
+            >({{ events ? events.length : 0 }})</i
+          >
+          <v-icon small color="pink lighten-2">mdi-done</v-icon>
         </v-col>
       </v-row>
     </v-expansion-panel-header>
 
-    <v-expansion-panel-content lass="bio">
+    <v-expansion-panel-content>
       <v-divider></v-divider>
 
-      <v-card-text class="bio">
+      <v-card-text>
         <v-row v-if="phone" dense>
           <v-col cols="3"><span class="grey--text">Телефон: </span></v-col>
           <v-col cols="9"> {{ phone }}</v-col>
@@ -48,12 +47,6 @@
           <v-col cols="3"><span class="grey--text">Email: </span></v-col>
           <v-col cols="9">
             <a :href="'mailto:' + email">{{ email }}</a>
-          </v-col>
-        </v-row>
-        <v-row v-if="bio" dense>
-          <v-col cols="3"><span class="grey--text">О Себе: </span></v-col>
-          <v-col cols="9">
-            {{ bio }}
           </v-col>
         </v-row>
       </v-card-text>
@@ -78,10 +71,8 @@ export default {
     avatar: { type: String },
     name: { type: String, required: true },
     phone: { type: String },
-    rating: { type: [String, Number], required: true },
     link: { type: String },
     email: { type: String },
-    bio: { type: String },
     categories: { type: Array, required: true },
     events: { type: Array }
   },

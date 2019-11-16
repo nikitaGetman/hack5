@@ -1,20 +1,20 @@
 <template>
   <v-container>
-    <h5 class="subtitle-1">События:</h5>
-    <!-- organizators list -->
+    <h5 class="subtitle-1">Мероприятия:</h5>
+    <!-- events list -->
     <v-expansion-panels multiple>
       <event-card
-        v-for="(organizator, i) in organizators"
+        v-for="(event, i) in events"
         :key="i"
-        :avatar="organizator.avatar"
-        :name="organizator.name"
-        :rating="organizator.rating"
-        :phone="organizator.phone"
-        :link="organizator.link"
-        :email="organizator.email"
-        :bio="organizator.bio"
-        :categories="organizator.categories"
-        :events="organizator.events"
+        :image="event.image"
+        :title="event.title"
+        :date="event.date"
+        :link="event.link"
+        :description="event.description"
+        :category="event.category"
+        :organizators="event.organizators"
+        :partners="event.partners"
+        :simplified="simplified"
       ></event-card>
     </v-expansion-panels>
   </v-container>
@@ -26,36 +26,17 @@ import EventCard from "../components/EventCard";
 export default {
   name: "home",
   components: { EventCard },
+  props: {
+    simplified: { type: Boolean, default: false }
+  },
   data() {
-    return {
-      // form city
-      selectedCity: null,
-      searchCity: null,
-      // form type
-      selectedType: null,
-      searchType: null
-      // form date from
-      // form date to
-    };
+    return {};
   },
   computed: {
-    cities() {
-      return this.$store.state.cities;
-    },
-    eventTypes() {
-      return this.$store.state.eventTypes;
-    },
-    organizators() {
-      return this.$store.state.organizators;
+    events() {
+      return this.$store.state.events;
     }
   },
-  methods: {
-    updateList() {
-      this.$store.dispatch("LOAD_EVENTS", {
-        city: this.selectedCity,
-        type: this.selectedType
-      });
-    }
-  }
+  methods: {}
 };
 </script>

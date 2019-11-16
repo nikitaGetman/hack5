@@ -2,7 +2,17 @@
 
 <script>
 export default {
-  name: "event-card"
+  name: "event-card",
+  props: {
+    image: { type: String },
+    title: { type: String, required: true },
+    date: { type: String, required: true },
+    link: { type: String },
+    description: { type: String },
+    category: { type: String },
+    organizators: { type: Array },
+    partners: { type: Array }
+  }
 };
 </script>
 

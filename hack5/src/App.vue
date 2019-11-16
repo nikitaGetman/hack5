@@ -6,7 +6,7 @@
       <!-- <router-view name="subheader"></router-view> -->
       <v-container>
         <navigation></navigation>
-        <filters></filters>
+        <filters class="mt-2"></filters>
         <router-view></router-view>
       </v-container>
     </v-content>

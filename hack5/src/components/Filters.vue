@@ -36,6 +36,9 @@
     <template v-if="$route.name === 'events'">
       event
     </template>
+    <template v-if="$route.name === 'partners'">
+      partners
+    </template>
   </v-row>
   <!--  filters end -->
 </template>
