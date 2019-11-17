@@ -66,7 +66,15 @@ const config = require("./config");
     totalEventIds = [...totalEventIds, ...ids];
     // totalEventIds.push(...ids);
 
-    saveToFile(ids, "eventIds.json");
+    saveToFile(
+      {
+        id: typesList[i].id,
+        value: typesList[i].value,
+        title: typesList[i].title,
+        data: ids
+      },
+      `./data/${i}.json`
+    );
   }
 
   // console.log(totalEventIds);
@@ -76,7 +84,7 @@ const config = require("./config");
 })();
 
 function saveToFile(data, filename) {
-  fs.appendFile(
+  fs.writeFile(
     filename,
 
     JSON.stringify(data),

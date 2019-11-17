@@ -1,11 +1,23 @@
 import Vue from "vue";
 import Vuex from "vuex";
-// import
 
+// import axios from "axios";
+
+// d56ed3397cb38cdd6f
 Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
+    user: {
+      name: localStorage.getItem("username"),
+      avatar: localStorage.getItem("avatar"),
+      id: localStorage.getItem("user_id")
+    },
+    vkApp: {
+      id: "7211525",
+      secret: "C7DZNMHD9MHnKjprVSiz",
+      url: "http://localhost:8080/"
+    },
     cities: ["Красноярск", "Москва", "Санкт-Петербург"],
     eventTypes: ["Art", "Programming", "Meetup", "Sport"],
     donationAmount: ["< 10k", "< 50k", "< 100k", "< 200k"],
@@ -43,11 +55,42 @@ export default new Vuex.Store({
         categories: ["Programming"]
       }
     ],
-    partners: [],
-    events: []
+    partners: [
+      {
+        image: "",
+        name: "Organization name",
+        type: "площадка",
+        summ: null,
+        phone: "891331414141",
+        email: "some@gmail.com",
+        link: "www.site.com"
+      }
+    ],
+    events: [
+      {
+        image: "",
+        title: "Some title",
+        category: "Art",
+        description: "Some desc",
+        link: "vk.com",
+        organizers: [
+          {
+            avatar:
+              "https://avatars0.githubusercontent.com/u/9064066?v=4&s=460",
+            name: "Ivan Petrov",
+            phone: "8913167282",
+            link: "vk:somename",
+            email: "mail@gmail.com"
+          }
+        ],
+        partners: [],
+        startDate: Date.now(),
+        finishDate: Date.now()
+      }
+    ]
   },
   mutations: {
-    SET_ORGANIZATIONS: (state, organizers) => {
+    LOAD_ORGANIZERS: (state, organizers) => {
       state.organizers = organizers;
     },
     SET_EVENTS: (state, events) => {
@@ -66,7 +109,7 @@ export default new Vuex.Store({
   actions: {
     LOAD_CITIES: () => {},
     LOAD_EVENT_TYPES: () => {},
-    LOAD_organizerS: /*({ commit }, { city, type })*/ () => {
+    LOAD_ORGANIZERS: /*({ commit }, { city, type })*/ () => {
       console.log("Load organizers action");
     },
     LOAD_EVENTS: /*({ commit }, { city, type })*/ () => {
@@ -74,7 +117,25 @@ export default new Vuex.Store({
     },
     LOAD_PARTNERS: /*({ commit }, { city, type })*/ () => {
       console.log("Load partners action");
+    },
+    START_AUTH_VK: ({ state }) => {
+      const params = {
+        client_id: state.vkApp.id,
+        redirect_uri: state.vkApp.url,
+        response_type: "code"
+      };
+      const url = `https://oauth.vk.com/authorize?client_id=${params.client_id}&display=page&redirect_uri=${params.redirect_uri}&response_type=${params.response_type}`;
+      // console.log("start");
+      window.open(url, "_blank");
+      // axios.get(url, { params });
+    },
+    AUTH_VK: (_, code) => {
+      console.log("auth vith vk");
+      console.log(code);
     }
+  },
+  getters: {
+    isAuthenticated: state => state.user.name
   },
   modules: {}
 });

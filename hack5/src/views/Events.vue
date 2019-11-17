@@ -8,13 +8,13 @@
         :key="i"
         :image="event.image"
         :title="event.title"
-        :date="event.date"
+        :date-start="event.startDate"
+        :date-end="event.finishDate"
         :link="event.link"
         :description="event.description"
         :category="event.category"
         :organizers="event.organizers"
         :partners="event.partners"
-        :simplified="simplified"
       ></event-card>
     </v-expansion-panels>
   </v-container>
@@ -24,7 +24,7 @@
 import EventCard from "../components/EventCard";
 
 export default {
-  name: "home",
+  name: "EventsList",
   components: { EventCard },
   props: {
     simplified: { type: Boolean, default: false }
@@ -37,6 +37,11 @@ export default {
       return this.$store.state.events;
     }
   },
-  methods: {}
+  methods: {},
+  created() {
+    if (this.$route.query.code) {
+      this.$store.dispatch("AUTH_VK", this.$route.query.code);
+    }
+  }
 };
 </script>

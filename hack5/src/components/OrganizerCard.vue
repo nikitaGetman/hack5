@@ -2,16 +2,16 @@
   <v-expansion-panel>
     <v-expansion-panel-header>
       <v-row align="center" class="spacer" no-gutters>
-        <v-col cols="4" sm="2" md="1">
-          <v-avatar size="36px" color="primary">
+        <v-col cols="1">
+          <v-avatar size="36px" color="teal">
             <img v-if="avatar" alt="Avatar" :src="avatar" />
             <v-icon v-else color="white">mdi-account</v-icon>
           </v-avatar>
         </v-col>
 
-        <v-col class="hidden-xs-only" sm="5" md="3">{{ name }}</v-col>
+        <v-col class="hidden-xs-only" cols="4">{{ name }}</v-col>
 
-        <v-col class="categories__list">
+        <v-col class="categories__list" cols="3">
           <strong>Категории:</strong>
           <i class="category__item">{{ categoriesList }}</i>
         </v-col>
@@ -76,7 +76,7 @@ export default {
   },
   computed: {
     categoriesList() {
-      let list = this.categories[0];
+      let list = " " + this.categories[0];
       this.categories.slice(1).map(cat => {
         list += ", " + cat;
       });

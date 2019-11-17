@@ -1,12 +1,10 @@
 <template>
   <v-container>
-    <v-row>
-      <h5 class="subtitle-1">Организаторы:</h5>
-      <v-spacer></v-spacer>
+    <h5 class="subtitle-1">Организаторы:</h5>
 
-      <!-- modal view -->
+    <!-- modal view -->
 
-      <v-dialog v-model="connectPopup" max-width="600px">
+    <!-- <v-dialog v-model="connectPopup" max-width="600px">
         <template v-slot:activator="{ on }">
           <v-btn class="ma-2" outlined color="pink lighten-2" small v-on="on">Разослать предложение</v-btn>
         </template>
@@ -40,12 +38,11 @@
         </v-card>
       </v-dialog>
 
-      <!-- <v-btn dark @click="snackbar = true">Open Snackbar</v-btn> -->
+
       <v-snackbar v-model="connectedSnackbar">
         Сообщения успошно разосланы.
         <v-btn color="pink" text @click="connectedSnackbar = false">Close</v-btn>
-      </v-snackbar>
-    </v-row>
+      </v-snackbar>-->
 
     <!-- organizers list -->
     <v-expansion-panels multiple>
@@ -69,7 +66,7 @@
 import OrganizerCard from "../components/OrganizerCard";
 
 export default {
-  name: "home",
+  name: "OrganizersList",
   components: { OrganizerCard },
   props: {},
   data() {
